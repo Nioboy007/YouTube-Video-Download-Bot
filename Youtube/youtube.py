@@ -24,10 +24,10 @@ async def process_youtube_link(client, message):
         downloading_msg = await message.reply_text("Downloading video...")
 
         ydl_opts = {
-            'outtmpl': 'downloaded_video_%(id)s.%(ext)s',
-            'format': 'bestvideo[height<=480]+bestaudio/best[height<=480]',
-            'progress_hooks': [lambda d: print(d['status'])]
-        }
+    'outtmpl': 'downloaded_video_%(id)s.%(ext)s',
+    'format': 'bestvideo[height<=480]+bestaudio/best[height<=480]/mp4',
+    'progress_hooks': [lambda d: print(d['status'])]
+}
 
         if Config.HTTP_PROXY != "":
             ydl_opts['proxy'] = Config.HTTP_PROXY
