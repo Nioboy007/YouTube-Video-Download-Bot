@@ -25,6 +25,7 @@ async def process_youtube_link(client, message):
 
         ydl_opts = {
             'outtmpl': 'downloaded_video_%(id)s.%(ext)s',
+            'format': 'bestvideo[height<=480]+bestaudio/best[height<=480]',
             'progress_hooks': [lambda d: print(d['status'])]
         }
 
