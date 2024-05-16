@@ -43,8 +43,8 @@ async def process_youtube_link(client, message):
                 ydl.download([youtube_link])
                 uploading_msg = await message.reply_text("Uploading video...")
                 video_extension = info_dict.get('ext', 'mp4')
+                print l(f"ext is = {video_extension}")
                 video_filename = f"downloaded_video_{info_dict['id']}.{video_extension}"
-                video_filename = f"downloaded_video_{info_dict['id']}.mp4"
                 sent_message = await client.send_video(message.chat.id, video=open(video_filename, 'rb'), caption=title)
 
                 await asyncio.sleep(2)
